@@ -4,6 +4,7 @@ metadata:
   name: myresiliency
 scopes:
   - checkout
+  - masterdata
 
 spec:
   policies:
@@ -21,6 +22,9 @@ spec:
 
   targets:
     apps:
+      dispatch:
+        retry: retryForever
+        circuitBreaker: simpleCB
       order-processor:
         retry: retryForever
         circuitBreaker: simpleCB
